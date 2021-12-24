@@ -130,7 +130,7 @@ class AuthController extends Controller
     }
     /**
      * @OA\Post(
-     ** path="/forgot",
+     ** path="/forgot-password",
      *   tags={"forgot"},
      *   summary="this api sends an email to user with a link to reset password",
      *   operationId="login",
