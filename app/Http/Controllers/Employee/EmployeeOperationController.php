@@ -65,7 +65,7 @@ class EmployeeOperationController extends Controller
      *      in="query",
      *      required=true,
      *      @OA\Schema(
-     *          type="date"
+     *          type="string"
      *      )
      *   ),@OA\Parameter(
      *      name="position",
@@ -167,7 +167,8 @@ class EmployeeOperationController extends Controller
     /**
      * @OA\Get(
      ** path="/EmployeeList",
-     *   tags={"EmployeeList"},
+     * security={{"bearer":{}}},
+     *     tags={"Authorize"},
      *   summary="return list of all employeees",
      *   operationId="EmployeeList",
      *   @OA\Response(

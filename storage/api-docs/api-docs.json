@@ -12,11 +12,16 @@
         },
         "version": "1.0.0"
     },
+    "servers": [
+        {
+            "url": "/api"
+        }
+    ],
     "paths": {
         "/login": {
             "post": {
                 "tags": [
-                    "Login"
+                    "UnAuthorize"
                 ],
                 "summary": "Login",
                 "operationId": "login",
@@ -144,7 +149,7 @@
                         "in": "query",
                         "required": true,
                         "schema": {
-                            "type": "date"
+                            "type": "string"
                         }
                     },
                     {
@@ -178,7 +183,7 @@
         "/EmployeeList": {
             "get": {
                 "tags": [
-                    "EmployeeList"
+                    "Authorize"
                 ],
                 "summary": "return list of all employeees",
                 "operationId": "EmployeeList",
@@ -198,7 +203,12 @@
                     "403": {
                         "description": "Forbidden"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
             }
         },
         "/DeleteEmployee": {
@@ -537,6 +547,26 @@
             }
         }
     },
+    "components": {
+        "securitySchemes": {
+            "bearer": {
+                "type": "http",
+                "name": "Authorization",
+                "in": "header",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "UnAuthorize",
+            "description": "No user login required"
+        },
+        {
+            "name": "Authorize",
+            "description": "User login required"
+        }
+    ],
     "security": [
         []
     ]

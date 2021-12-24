@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Validator;
 // use Symfony\Component\Mime\Message;
 
 /**
+ *     @OA\Server(
+ *      url="/api"
+ *
+ *   ),
+
  * @OA\Info(
  *      version="1.0.0",
  *      title="Employees Management",
@@ -26,14 +31,31 @@ use Illuminate\Support\Facades\Validator;
  *          name="Apache 2.0",
  *          url="http://www.apache.org/licenses/LICENSE-2.0.html"
  *      )
- * )
+ * ),
+ * @OA\SecurityScheme(
+ *       scheme="bearer",
+ *       securityScheme="bearer",
+ *       type="http",
+ *       in="header",
+ *       name="Authorization",
+ * ),
+ */
+/**
+
+ */
+/**
+ *@OA\Tag(name="UnAuthorize", description="No user login required")
+ */
+
+/**
+ *@OA\Tag(name="Authorize", description="User login required")
  */
 class AuthController extends Controller
 {
     /**
      * @OA\Post(
      ** path="/login",
-     *   tags={"Login"},
+     *     tags={"UnAuthorize"},
      *   summary="Login",
      *   operationId="login",
      *
