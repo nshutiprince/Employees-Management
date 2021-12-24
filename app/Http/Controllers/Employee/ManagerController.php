@@ -66,7 +66,8 @@ class ManagerController extends Controller
      *      in="query",
      *      required=true,
      *      @OA\Schema(
-     *          type="date"
+     *          type="string",
+     *          format = "date"
      *      )
      *   ),
      *   @OA\Response(
@@ -94,6 +95,7 @@ class ManagerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function signup(Request $request)
     {
         $validator = Validator::make($request->all(), [

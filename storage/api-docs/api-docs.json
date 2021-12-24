@@ -523,7 +523,8 @@
                         "in": "query",
                         "required": true,
                         "schema": {
-                            "type": "date"
+                            "type": "string",
+                            "format": "date"
                         }
                     }
                 ],
